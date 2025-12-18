@@ -1,80 +1,6 @@
 [
     {
         "kind": "calendar#event",
-        "etag": "\"3531391437068254\"",
-        "id": "s4u7pv80p437c2u36dh9n9c2f7_20251217T130000Z",
-        "status": "confirmed",
-        "htmlLink": "https://www.google.com/calendar/event?eid=czR1N3B2ODBwNDM3YzJ1MzZkaDluOWMyZjdfMjAyNTEyMTdUMTMwMDAwWiBuYXRhbGllZ3JhY2VrYXRAbQ",
-        "created": "2025-12-14T07:00:04.000Z",
-        "updated": "2025-12-14T07:01:58.534Z",
-        "summary": "Kecerdasan Bisnis",
-        "creator": {
-            "email": "nataliegracekat@gmail.com",
-            "self": true
-        },
-        "organizer": {
-            "email": "nataliegracekat@gmail.com",
-            "self": true
-        },
-        "start": {
-            "dateTime": "2025-12-17T21:00:00+08:00",
-            "timeZone": "UTC"
-        },
-        "end": {
-            "dateTime": "2025-12-17T23:30:00+08:00",
-            "timeZone": "UTC"
-        },
-        "recurringEventId": "s4u7pv80p437c2u36dh9n9c2f7",
-        "originalStartTime": {
-            "dateTime": "2025-12-17T21:00:00+08:00",
-            "timeZone": "UTC"
-        },
-        "iCalUID": "s4u7pv80p437c2u36dh9n9c2f7@google.com",
-        "sequence": 2,
-        "reminders": {
-            "useDefault": true
-        },
-        "eventType": "default"
-    },
-    {
-        "kind": "calendar#event",
-        "etag": "\"3531594850857758\"",
-        "id": "06554673mppi6jinblkcvv5scj_20251217T220000Z",
-        "status": "confirmed",
-        "htmlLink": "https://www.google.com/calendar/event?eid=MDY1NTQ2NzNtcHBpNmppbmJsa2N2djVzY2pfMjAyNTEyMTdUMjIwMDAwWiBuYXRhbGllZ3JhY2VrYXRAbQ",
-        "created": "2025-12-15T11:17:04.000Z",
-        "updated": "2025-12-15T11:17:05.428Z",
-        "summary": "Doa Malam",
-        "creator": {
-            "email": "nataliegracekat@gmail.com",
-            "self": true
-        },
-        "organizer": {
-            "email": "nataliegracekat@gmail.com",
-            "self": true
-        },
-        "start": {
-            "dateTime": "2025-12-18T06:00:00+08:00",
-            "timeZone": "UTC"
-        },
-        "end": {
-            "dateTime": "2025-12-18T06:30:00+08:00",
-            "timeZone": "UTC"
-        },
-        "recurringEventId": "06554673mppi6jinblkcvv5scj",
-        "originalStartTime": {
-            "dateTime": "2025-12-18T06:00:00+08:00",
-            "timeZone": "UTC"
-        },
-        "iCalUID": "06554673mppi6jinblkcvv5scj@google.com",
-        "sequence": 0,
-        "reminders": {
-            "useDefault": true
-        },
-        "eventType": "default"
-    },
-    {
-        "kind": "calendar#event",
         "etag": "\"3531606298914302\"",
         "id": "0h3ml1sbt2g31apet3p1pd6n75_20251217T234500Z",
         "status": "confirmed",
@@ -3065,6 +2991,80 @@
         },
         "iCalUID": "s4u7pv80p437c2u36dh9n9c2f7@google.com",
         "sequence": 2,
+        "reminders": {
+            "useDefault": true
+        },
+        "eventType": "default"
+    },
+    {
+        "kind": "calendar#event",
+        "etag": "\"3531594850857758\"",
+        "id": "06554673mppi6jinblkcvv5scj_20251231T220000Z",
+        "status": "confirmed",
+        "htmlLink": "https://www.google.com/calendar/event?eid=MDY1NTQ2NzNtcHBpNmppbmJsa2N2djVzY2pfMjAyNTEyMzFUMjIwMDAwWiBuYXRhbGllZ3JhY2VrYXRAbQ",
+        "created": "2025-12-15T11:17:04.000Z",
+        "updated": "2025-12-15T11:17:05.428Z",
+        "summary": "Doa Malam",
+        "creator": {
+            "email": "nataliegracekat@gmail.com",
+            "self": true
+        },
+        "organizer": {
+            "email": "nataliegracekat@gmail.com",
+            "self": true
+        },
+        "start": {
+            "dateTime": "2026-01-01T06:00:00+08:00",
+            "timeZone": "UTC"
+        },
+        "end": {
+            "dateTime": "2026-01-01T06:30:00+08:00",
+            "timeZone": "UTC"
+        },
+        "recurringEventId": "06554673mppi6jinblkcvv5scj",
+        "originalStartTime": {
+            "dateTime": "2026-01-01T06:00:00+08:00",
+            "timeZone": "UTC"
+        },
+        "iCalUID": "06554673mppi6jinblkcvv5scj@google.com",
+        "sequence": 0,
+        "reminders": {
+            "useDefault": true
+        },
+        "eventType": "default"
+    },
+    {
+        "kind": "calendar#event",
+        "etag": "\"3531606298914302\"",
+        "id": "0h3ml1sbt2g31apet3p1pd6n75_20251231T234500Z",
+        "status": "confirmed",
+        "htmlLink": "https://www.google.com/calendar/event?eid=MGgzbWwxc2J0MmczMWFwZXQzcDFwZDZuNzVfMjAyNTEyMzFUMjM0NTAwWiBuYXRhbGllZ3JhY2VrYXRAbQ",
+        "created": "2025-12-15T12:52:28.000Z",
+        "updated": "2025-12-15T12:52:29.457Z",
+        "summary": "tidur",
+        "creator": {
+            "email": "nataliegracekat@gmail.com",
+            "self": true
+        },
+        "organizer": {
+            "email": "nataliegracekat@gmail.com",
+            "self": true
+        },
+        "start": {
+            "dateTime": "2026-01-01T07:45:00+08:00",
+            "timeZone": "UTC"
+        },
+        "end": {
+            "dateTime": "2026-01-01T13:30:00+08:00",
+            "timeZone": "UTC"
+        },
+        "recurringEventId": "0h3ml1sbt2g31apet3p1pd6n75",
+        "originalStartTime": {
+            "dateTime": "2026-01-01T07:45:00+08:00",
+            "timeZone": "UTC"
+        },
+        "iCalUID": "0h3ml1sbt2g31apet3p1pd6n75@google.com",
+        "sequence": 0,
         "reminders": {
             "useDefault": true
         },

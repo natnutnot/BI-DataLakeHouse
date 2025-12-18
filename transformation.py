@@ -124,7 +124,7 @@ def transform_tugas():
         df['progress_clean'] = df['Progress '].apply(clean_progress)
         
         # 2. Perbaiki Tanggal Deadline
-        df['deadline_clean'] = pd.to_datetime(df['Deadline'], errors='coerce')
+        df['deadline_clean'] = pd.to_datetime(df['Deadline'], dayfirst=True, errors='coerce')
         
         # 3. Rename kolom biar coding enak (huruf kecil, inggris)
         df_clean = df.rename(columns={
@@ -195,7 +195,7 @@ def transform_tmdb():
         df = pd.DataFrame(data)
         
         # Pilih kolom penting saja (Buang yang tidak perlu)
-        wanted_cols = ['id', 'title', 'genre_ids', 'vote_average', 'popularity', 'release_date']
+        wanted_cols = ['id', 'title', 'genre_ids', 'vote_average', 'popularity', 'release_date','overview']
         # Pastikan kolom ada (kalau tidak ada, isi NaN)
         for col in wanted_cols:
             if col not in df.columns:
