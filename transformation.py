@@ -195,7 +195,7 @@ def transform_tmdb():
         df = pd.DataFrame(data)
         
         # Pilih kolom penting saja (Buang yang tidak perlu)
-        wanted_cols = ['id', 'title', 'genre_ids', 'vote_average', 'popularity', 'release_date']
+        wanted_cols = ['id', 'title', 'genre_ids', 'vote_average', 'popularity', 'release_date','overview']
         # Pastikan kolom ada (kalau tidak ada, isi NaN)
         for col in wanted_cols:
             if col not in df.columns:
