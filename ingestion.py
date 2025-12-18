@@ -7,6 +7,7 @@ from google.oauth2.service_account import Credentials
 from googleapiclient.discovery import build
 from pymongo import MongoClient
 from datetime import datetime, timedelta, timezone
+from dotenv import load_dotenv
 
 load_dotenv()
 
