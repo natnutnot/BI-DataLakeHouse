@@ -1,43 +1,6 @@
 [
     {
         "kind": "calendar#event",
-        "etag": "\"3531606298914302\"",
-        "id": "0h3ml1sbt2g31apet3p1pd6n75_20251217T234500Z",
-        "status": "confirmed",
-        "htmlLink": "https://www.google.com/calendar/event?eid=MGgzbWwxc2J0MmczMWFwZXQzcDFwZDZuNzVfMjAyNTEyMTdUMjM0NTAwWiBuYXRhbGllZ3JhY2VrYXRAbQ",
-        "created": "2025-12-15T12:52:28.000Z",
-        "updated": "2025-12-15T12:52:29.457Z",
-        "summary": "tidur",
-        "creator": {
-            "email": "nataliegracekat@gmail.com",
-            "self": true
-        },
-        "organizer": {
-            "email": "nataliegracekat@gmail.com",
-            "self": true
-        },
-        "start": {
-            "dateTime": "2025-12-18T07:45:00+08:00",
-            "timeZone": "UTC"
-        },
-        "end": {
-            "dateTime": "2025-12-18T13:30:00+08:00",
-            "timeZone": "UTC"
-        },
-        "recurringEventId": "0h3ml1sbt2g31apet3p1pd6n75",
-        "originalStartTime": {
-            "dateTime": "2025-12-18T07:45:00+08:00",
-            "timeZone": "UTC"
-        },
-        "iCalUID": "0h3ml1sbt2g31apet3p1pd6n75@google.com",
-        "sequence": 0,
-        "reminders": {
-            "useDefault": true
-        },
-        "eventType": "default"
-    },
-    {
-        "kind": "calendar#event",
         "etag": "\"3531423681274686\"",
         "id": "01sqng0j7hqqqrdkce8rhnp222_20251218T054500Z",
         "status": "confirmed",

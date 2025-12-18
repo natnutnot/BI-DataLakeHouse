@@ -43,6 +43,58 @@ if df_prod is None:
     st.error("Data not found. Please ensure the ETL pipeline has been executed.")
     st.stop()
 
+# ==============================================================================
+# [NEW] PRE-PROCESSING & FILTERING SECTIONS
+# ==============================================================================
+
+# --- A. PRE-PROCESSING (Pindah ke atas agar bisa difilter) ---
+df_prod['date'] = pd.to_datetime(df_prod['date'])
+
+# Mapping Hari (Agar sesuai bahasa filter)
+day_map = {
+    0: 'Monday', 1: 'Tuesday', 2: 'Wednesday', 3: 'Thursday', 
+    4: 'Friday', 5: 'Saturday', 6: 'Sunday'
+}
+# Kita gunakan Bahasa Inggris agar cocok dengan logika 'days_order' di kode kamu yang bawah
+df_prod['day_name'] = df_prod['date'].dt.dayofweek.map(day_map) 
+
+# Mapping Bulan
+df_prod['month_year'] = df_prod['date'].dt.to_period('M').astype(str)
+
+# --- B. SIDEBAR FILTER ---
+st.sidebar.header("🔍 Filter Data")
+
+# 1. Filter Rentang Tanggal
+min_date = df_prod['date'].min().date()
+max_date = df_prod['date'].max().date()
+
+start_date = st.sidebar.date_input("Start Date", min_date)
+end_date = st.sidebar.date_input("End Date", max_date)
+
+# 2. Filter Bulan
+all_months = sorted(df_prod['month_year'].unique())
+selected_months = st.sidebar.multiselect("Select Month:", all_months, default=all_months)
+
+# 3. Filter Hari
+days_order_filter = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
+selected_days = st.sidebar.multiselect("Select Day:", days_order_filter, default=days_order_filter)
+
+# --- C. APPLY FILTER ---
+mask = (
+    (df_prod['date'].dt.date >= start_date) & 
+    (df_prod['date'].dt.date <= end_date) & 
+    (df_prod['month_year'].isin(selected_months)) & 
+    (df_prod['day_name'].isin(selected_days))
+)
+
+# KITA OVERWRITE df_prod AGAR SEMUA GRAFIK DI BAWAH OTOMATIS BERUBAH
+df_prod = df_prod[mask]
+
+# Cek jika hasil filter kosong
+if df_prod.empty:
+    st.warning("No data available based on current filters.")
+    st.stop()
+
 # --- TABS ---
 tab1, tab2, tab3, tab4 = st.tabs([
     "1. Report (Descriptive)", 
