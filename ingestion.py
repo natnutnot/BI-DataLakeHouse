@@ -24,7 +24,8 @@ os.makedirs(BRONZE_PATH, exist_ok=True)
 def ingest_mongodb():
     print("\n[1/4] Ingest: MongoDB (History) -> CSV Bronze...")
     try:
-        client = MongoClient("mongodb://localhost:27017/")
+        MONGO_HOST = os.getenv("MONGO_HOST", "mongodb")
+        client = pymongo.MongoClient(f"mongodb://{MONGO_HOST}:27017/")
         db = client["uas_bi_db"]
         collection = db["watch_history"]
         

@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  # 1. Service Database (MongoDB)
+  mongodb:
+    image: mongo:latest
+    container_name: uas_mongodb
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db  # Agar data tidak hilang saat docker dimatikan
+
+  # 2. Service Aplikasi (Python + Streamlit)
+  app:
+    build: .
+    container_name: uas_app
+    ports:
+      - "8501:8501"  # Akses dashboard via browser laptop
+    depends_on:
+      - mongodb      # Pastikan DB nyala dulu baru App
+    environment:
+      - MONGO_HOST=mongodb
+    volumes:
+      - .:/app       # (Opsional) Hot-reload: Coding di luar, update di dalam
+    env_file:
+      - .env         # Load password/API Key dari file .env
+
+volumes:
+  mongo_data:

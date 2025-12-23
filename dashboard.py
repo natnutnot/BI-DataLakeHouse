@@ -13,7 +13,11 @@ if 'accepted_movie' not in st.session_state:
 
 # --- PAGE CONFIGURATION ---
 st.set_page_config(page_title="Personal BI Dashboard", layout="wide")
-
+with st.sidebar:
+    st.header("⚙️ Pengaturan")
+    if st.button("🔄 Refresh Data Terbaru"):
+        st.cache_data.clear()  # Hapus memori lama
+        st.rerun()
 # --- DATA LOADING FUNCTION ---
 @st.cache_data
 def load_data():

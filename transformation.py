@@ -86,7 +86,7 @@ def transform_history():
     print("\n[1/4] Transform: Cleaning History Film...")
     try:
         df = pd.read_csv(f"{BRONZE_PATH}/raw_history_film.csv")
-        
+        df = df.drop_duplicates(subset=['Nama Film'])
         # Terapkan pembersihan genre
         df['Genre_Clean'] = df['Genre'].apply(clean_genre_text)
         
@@ -110,26 +110,36 @@ def transform_tugas():
     try:
         df = pd.read_csv(f"{BRONZE_PATH}/raw_tugas_kesibukan.csv")
         
-        # 1. Bersihkan Progress (Hapus %, ubah jadi float 0.0 - 1.0)
+        # 1. HAPUS DUPLIKAT BARIS (Kalau ada baris kembar persis, sisakan 1)
+        initial_count = len(df)
+
+        # 2. Bersihkan Angka (String -> Float)
+        df['estimation_hours'] = pd.to_numeric(df['Estimasi (jam)'], errors='coerce').fillna(0)
+        
+        # 3. STANDARISASI KATEGORI (PENTING untuk logika Gold)
+        # " akademik " -> "Akademik" (Hapus spasi, Kapital awal)
+        df['Kategori'] = df['Kategori'].astype(str).str.strip().str.title()
+
+        # 4. Bersihkan Progress
         def clean_progress(val):
             val = str(val).replace('%', '').strip()
-            if val == '': return 0.0
             try:
                 num = float(val)
-                # Jika user input 100, jadi 1.0. Jika user input 0.5, tetap 0.5
                 return num / 100.0 if num > 1.0 else num
             except:
                 return 0.0
-
         df['progress_clean'] = df['Progress '].apply(clean_progress)
         
-        # 2. Perbaiki Tanggal Deadline
+        # 5. Tanggal (Day First)
         df['deadline_clean'] = pd.to_datetime(df['Deadline'], dayfirst=True, errors='coerce')
         
-        # 3. Rename kolom biar coding enak (huruf kecil, inggris)
+        # 6. Filter Sampah (Jam negatif atau Tanggal Error)
+        df = df[df['deadline_clean'].notna()]  # Buang yang tanggalnya ngaco
+        df = df[df['estimation_hours'] > 0]    # Buang jam 0 atau minus
+
+        # Rename
         df_clean = df.rename(columns={
             'Nama Tugas': 'task_name',
-            'Estimasi (jam)': 'estimation_hours',
             'Kategori': 'category',
             'Tipe Beban': 'load_type'
         })
@@ -140,7 +150,7 @@ def transform_tugas():
         
         output = f"{SILVER_PATH}/dim_tasks.parquet"
         df_final.to_parquet(output, index=False)
-        print(f"   ✅ Sukses: Progress & Tanggal diperbaiki. Simpan ke {output}")
+        print(f"   ✅ Sukses: Data Tugas Bersih (No Duplicate, Standard Category).")
         
     except Exception as e:
         print(f"   ❌ Gagal Tugas: {e}")

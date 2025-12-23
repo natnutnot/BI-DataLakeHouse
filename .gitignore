@@ -3,4 +3,5 @@ __pycache__/
 .env
 .DS_Store
 *.parquet
+*.json
 credentials.json

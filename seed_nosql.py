@@ -1,12 +1,16 @@
 import gspread
 import pandas as pd
+import os
+from dotenv import load_dotenv
 from pymongo import MongoClient
 from google.oauth2.service_account import Credentials
+
 
 # --- KONFIGURASI ---
 CREDENTIALS_FILE = 'credentials.json'
 SHEET_NAME = "Data History Film"  # Pastikan nama ini SAMA PERSIS dengan di Drive
-MONGO_URI = "mongodb://localhost:27017/"
+MONGO_HOST = os.getenv("MONGO_HOST", "localhost") 
+MONGO_URI = f"mongodb://{MONGO_HOST}:27017/"
 DB_NAME = "uas_bi_db"
 COLLECTION_NAME = "watch_history"
 
